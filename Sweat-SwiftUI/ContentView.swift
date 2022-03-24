@@ -30,6 +30,14 @@ struct ContentView: View {
             (Text("자간과 기준선").kerning(8)
              + Text(" 조정도 쉽게 가능합니다.").baselineOffset(8))
                 .font(.system(size: 16))
+            Text("수식어 순서 테스트")
+                .font(.largeTitle)
+                .background(.yellow)
+                .padding()
+            Text("수식어 순서 테스트")
+                .font(.largeTitle)
+                .padding()
+                .background(.yellow)
         }
     }
 }
