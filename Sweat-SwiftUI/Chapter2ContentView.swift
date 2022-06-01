@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Chapter2ContentView: View {
-    var body: some View {
+    var body: some View {        
         VStack(spacing: 30) {
             Text("폰트와 굵기 설정")
                 .font(.title)
@@ -41,6 +41,37 @@ struct Chapter2ContentView: View {
         }
         .navigationTitle("Chapter 2")
         .navigationBarTitleDisplayMode(.inline)
+        
+        VStack {
+            Text("도형 만들기")
+                .font(.largeTitle)
+                .fontWeight(.heavy)
+            HStack {
+                Text("둥근 모양").font(.title)
+                Spacer()
+            }
+            ZStack {
+                Rectangle().frame(height: 10)
+                HStack {
+                    Circle().fill(Color.yellow)
+                    Ellipse().fill(Color.green)
+                    Capsule().fill(Color.orange)
+                    RoundedRectangle(cornerRadius: 30).fill(Color.gray)
+                }
+            }
+            HStack {
+                Text("각진 모양").font(.title)
+                Spacer()
+            }
+            ZStack {
+                Rectangle().frame(height: 10)
+                HStack {
+                    Color.red
+                    Rectangle().fill(Color.blue)
+                    RoundedRectangle(cornerRadius: 0).fill(Color.purple)
+                }
+            }
+        }.padding()
     }
 }
 

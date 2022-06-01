@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A33EAB292847B67D00675666 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = A33EAB282847B67D00675666 /* Home.swift */; };
 		A3451D2B27DE342100FCC69B /* Sweat_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3451D2A27DE342100FCC69B /* Sweat_SwiftUIApp.swift */; };
 		A3451D2D27DE342100FCC69B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3451D2C27DE342100FCC69B /* ContentView.swift */; };
 		A3451D2F27DE342200FCC69B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A3451D2E27DE342200FCC69B /* Assets.xcassets */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A33EAB282847B67D00675666 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		A3451D2727DE342100FCC69B /* Sweat-SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sweat-SwiftUI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3451D2A27DE342100FCC69B /* Sweat_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sweat_SwiftUIApp.swift; sourceTree = "<group>"; };
 		A3451D2C27DE342100FCC69B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +38,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A33EAB272847B66400675666 /* FruitMart */ = {
+			isa = PBXGroup;
+			children = (
+				A33EAB282847B67D00675666 /* Home.swift */,
+			);
+			path = FruitMart;
+			sourceTree = "<group>";
+		};
 		A3451D1E27DE342100FCC69B = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +65,7 @@
 		A3451D2927DE342100FCC69B /* Sweat-SwiftUI */ = {
 			isa = PBXGroup;
 			children = (
+				A33EAB272847B66400675666 /* FruitMart */,
 				A3451D2A27DE342100FCC69B /* Sweat_SwiftUIApp.swift */,
 				A3451D2C27DE342100FCC69B /* ContentView.swift */,
 				A39A84602844FF8A00E5E144 /* Chapter2ContentView.swift */,
@@ -145,6 +156,7 @@
 			files = (
 				A39A84632845024400E5E144 /* Chapter3ContentView.swift in Sources */,
 				A3451D2D27DE342100FCC69B /* ContentView.swift in Sources */,
+				A33EAB292847B67D00675666 /* Home.swift in Sources */,
 				A39A84612844FF8A00E5E144 /* Chapter2ContentView.swift in Sources */,
 				A3451D2B27DE342100FCC69B /* Sweat_SwiftUIApp.swift in Sources */,
 			);

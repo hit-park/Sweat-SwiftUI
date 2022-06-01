@@ -10,7 +10,10 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            VStack(spacing: 10) {
+            VStack(spacing: 30) {
+                NavigationLink("과일마트") {
+                    Home()
+                }
                 NavigationLink("Chapter 2") {
                     Chapter2ContentView()
                 }
