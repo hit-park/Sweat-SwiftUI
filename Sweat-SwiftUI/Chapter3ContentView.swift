@@ -104,7 +104,7 @@ struct Chapter3ContentView: View {
         GeometryReader { _ in
             Circle()
                 .fill(.purple)
-                .frame(width: 200, height: 200)
+//                .frame(width: 200, height: 200)
                 .overlay(Text("Center").font(.title))
         }.background(.gray)
         
@@ -120,8 +120,97 @@ struct Chapter3ContentView: View {
                 .frame(width: 200, height: 200)
             Text("TopLeading").font(.title)
         }.background(.gray)
+        
+        GeometryReader { proxy in
+            Text("Geometry Reader")
+                .font(.largeTitle).bold()
+                .position(x: proxy.size.width / 2,
+                          y: proxy.safeAreaInsets.top)
+
+            VStack {
+                Text("Size").bold()
+                Text("width: \(proxy.size.width)")
+                Text("height: \(proxy.size.height)")
+            }.position(
+                x: proxy.size.width / 2,
+                y: proxy.size.height / 2.5)
+
+            VStack {
+                Text("SafeAreaInsets").bold()
+                Text("top: \(proxy.safeAreaInsets.top)")
+                Text("bottom: \(proxy.safeAreaInsets.bottom)")
+            }.position(
+                x: proxy.size.width / 2,
+                y: proxy.size.height / 1.4)
+        }
+        .font(.title)
+// iOS 14부터는 GeometryReader가 직접 안전 영역에 맞닿은 면에 한해 그 크기를 가져옴.
+//        .frame(height: 500)
+        .border(.green, width: 5)
+
+//        HStack {
+//            Rectangle()
+//                .fill(Color.yellow)
+//                .frame(width: 30)
+//
+//            VStack {
+//                Rectangle()
+//                    .fill(Color.blue)
+//                    .frame(height: 200)
+//
+//                GeometryReader {
+//                    self.contents(g: $0)
+//                }
+//                .background(Color.green, alignment: .center)
+//                .border(Color.red, width: 4)
+//            }
+//            .coordinateSpace(name: "VStackCS")
+//        }
+//        .coordinateSpace(name: "HStackCS")
+        
+        
+//        VStack {
+//            Text("Frame Modifier")
+//                .font(.title).bold()
+//                .frame(width: 80, height: 30)
+//            Rectangle()
+//            Color.red
+//            Image("SwiftUI").resizable()
+//        }
+        
+        VStack {
+            Text("Frame Modifier")
+                .font(.title).bold()
+//                .frame(width: 80, height: 30)
+//                .fixedSize()
+            Rectangle().frame(idealWidth: 100).fixedSize()
+            Color.red.fixedSize()
+            Image("SwiftUI").resizable().fixedSize()
+        }.background(.orange)
     }
+    
+//    func contents(g: GeometryProxy) -> some View {
+//        VStack {
+//            Text("Local").bold()
+//            Text(stringFormat(for: g.frame(in: .local).origin)).padding(.bottom)
+//
+//            Text("Global").bold()
+//            Text(stringFormat(for: g.frame(in: .global).origin)).padding(.bottom)
+//
+//            Text("Named VStackCS").bold()
+//            Text(stringFormat(for: g.frame(in: .named("VStackCS")).origin)).padding(.bottom)
+//
+//            Text("Named HStackCS").bold()
+//            Text(stringFormat(for: g.frame(in: .named("HStackCS")).origin)).padding(.bottom)
+//        }
+//    }
+//
+//    func stringFormat(for point: CGPoint) -> String {
+//        String(format: "(x: %.f, y: %.f)", [point.x, point.y])
+//    }
 }
+
+
 
 struct User: Hashable, Identifiable {
     let id = UUID()
