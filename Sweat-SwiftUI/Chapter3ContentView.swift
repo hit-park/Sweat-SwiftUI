@@ -56,7 +56,76 @@ struct Chapter3ContentView: View {
                     .imageScale(.large)
             }
         }
+        
+        List(0..<100) {
+            Text("\($0)")
+        }
+        
+        List([1,2,3,4,5,6,7,8], id: \.self) {
+            Text("\($0)")
+        }
+        
+        let rows: [User] = [User(name: "steve"), User(name: "james")]
+        List(rows, id: \.name) {
+            Text("\($0.name)")
+        }
+        
+        let titles: [String] = ["Fruits", "Drinks"]
+        let fruits: [String] = ["사과", "배", "포도", "바나나"]
+        let drinks: [String] = ["물", "우유", "탄산수"]
+        let data  : [[String]] = [fruits, drinks]
+        List {
+            Text("Fruits").font(.largeTitle)
+            ForEach(fruits, id: \.self) {
+                Text("\($0)")
+            }
+            Text("Drinks").font(.largeTitle)
+            ForEach(drinks, id: \.self) {
+                Text("\($0)")
+            }
+        }
+        
+        List {
+            ForEach(data.indices) { idx in
+                Section {
+                    ForEach(data[idx], id: \.self) {
+                        Text("\($0)")
+                    }
+                } header: {
+                    Text(titles[idx]).font(.largeTitle)
+                } footer: {
+                    HStack { Spacer(); Text("\(data[idx].count)건") }
+                }
+            }
+        }
+        .listStyle(.grouped)
+        .environment(\.horizontalSizeClass, .regular)
+        
+        GeometryReader { _ in
+            Circle()
+                .fill(.purple)
+                .frame(width: 200, height: 200)
+                .overlay(Text("Center").font(.title))
+        }.background(.gray)
+        
+        GeometryReader { _ in
+            Circle()
+                .fill(.blue)
+                .frame(width: 350, height: 350)
+            Circle()
+                .fill(.orange)
+                .frame(width: 280, height: 280)
+            Circle()
+                .fill(.purple)
+                .frame(width: 200, height: 200)
+            Text("TopLeading").font(.title)
+        }.background(.gray)
     }
+}
+
+struct User: Hashable, Identifiable {
+    let id = UUID()
+    let name: String
 }
 
 struct Chapter3ContentView_Previews: PreviewProvider {
