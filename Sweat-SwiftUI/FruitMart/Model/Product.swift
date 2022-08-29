@@ -7,12 +7,17 @@
 
 import Foundation
 
-struct Product {
+struct Product: Decodable, Identifiable {
+    var id          : UUID = UUID()
     let name        : String
     let imageName   : String
     let price       : Int
     let description : String
     var isFavorite  : Bool = false
+    
+    private enum CodingKeys: CodingKey {
+      case name, imageName, price, description, isFavorite
+    }
 }
 
 let productSamples = [

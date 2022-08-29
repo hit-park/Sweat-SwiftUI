@@ -21,10 +21,11 @@ struct ContentView: View {
             }
         }
         
+        
         return NavigationView {
             VStack(spacing: 30) {
                 NavigationLink("과일마트") {
-                    Home().navigationBarBackButtonHidden(true)
+                    Home(store: Store())//.navigationBarBackButtonHidden(true)
                 }
                 NavigationLink("Chapter 2") {
                     Chapter2ContentView()
@@ -37,8 +38,9 @@ struct ContentView: View {
                 ToolbarItem(placement: .navigationBarLeading) { leadingItem }
                 ToolbarItem(placement: .navigationBarTrailing) { trailingItem }
             }
-            .navigationTitle("ContentView")
+//            .navigationTitle("ContentView")
             .navigationBarTitleDisplayMode(.inline)
+            .navigationViewStyle(.stack)
         }
     }
 }
