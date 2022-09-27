@@ -25,6 +25,7 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Preview(source: Home(store: Store()))
+//        Preview(source: Home(store: Store()))
+        Home(store: Store())
     }
 }

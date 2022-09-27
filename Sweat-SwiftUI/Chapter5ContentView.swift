@@ -30,29 +30,53 @@ struct Chapter5ContentView: View {
                 Text(user.score.description)
             }
             SuperView().environmentObject(User2())
-            Button(action: { self.showingAlert = true }) {
-                Text("Alert")
+//            Button("Show Alert - 15 Under") {
+//                self.showingAlert = true
+//            }
+//            .alert(isPresented: $showingAlert) {
+//                Alert(
+//                    title           : Text("제목"),
+//                    message         : Text("내용"),
+//                    primaryButton   : .default(Text("확인"), action: { print("확인 버튼 클릭됨.") }),
+//                    secondaryButton : .cancel(Text("취소"))
+//                )
+//            }
+            
+//            Button("Show Alert - 15 Upper") {
+//                self.showingAlert = true
+//            }
+//            .alert("제목", isPresented: $showingAlert) {
+//                Button("확인") { print("확인 버튼 클릭됨.") }
+//                Button("취소", role: .cancel) { }
+//            } message: {
+//                Text("내용")
+//            }
+
+            Button("ActionSheet") {
+                self.showingActionSheet = true
             }
-            .alert(isPresented: $showingAlert) {
-                Alert(
-                    title           : Text("제목"),
-                    message         : Text("제목"),
-                    primaryButton   : .default(Text("확인"), action: { print("확인") }),
-                    secondaryButton : .cancel(Text("취소"))
-                )
+            .confirmationDialog("제목", isPresented: $showingActionSheet, titleVisibility: .visible) {
+                Button("Dismiss", role: .cancel) { }
+                Button("1") { }
+                Button("2", role: .destructive) { }
+            } message: {
+                Text("내용")
             }
-            Button(action: { self.showingActionSheet = true }) {
-                Text("ActionSheet")
-            }
-            .confirmationDialog(
-                Text("제목"),
-                isPresented: $showingActionSheet,
-                actions: {
-                    Button("1") { }
-                    Button("2") { }
-                    Button("Dismiss", role: .cancel) { }
-                }
-            )
+            
+//            Button("ActionSheet") {
+//                self.showingActionSheet = true
+//            }
+//            .actionSheet(isPresented: $showingActionSheet) {
+//                ActionSheet(
+//                    title   : Text("제목"),
+//                    message : Text("내용"),
+//                    buttons : [
+//                        .default(Text("1")),
+//                        .destructive(Text("2")),
+//                        .cancel(Text("Dismiss"))
+//                    ]
+//                )
+//            }
         }
         .padding()
     }
