@@ -12,7 +12,7 @@ struct Sweat_SwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
 //            ContentView()
-            Home(store: Store())
+            Home().environmentObject(Store())
         }
     }
 }

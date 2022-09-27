@@ -51,10 +51,7 @@ struct ProductDetailView: View {
                     .fontWeight(.medium)
                     .foregroundColor(.black)
                 Spacer()
-                Image(systemName: "heart")
-                    .imageScale(.large)
-                    .foregroundColor(.peach)
-                    .frame(width: 32, height: 32)
+                FavoriteButton(prouduct: product)
             }
             Text(splitText(product.description))
                 .foregroundColor(.secondaryText)
@@ -105,7 +102,7 @@ struct ProductDetailView: View {
 
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let source1 = ProductDetailView(product: productSamples[0])
+        let source1 = ProductDetailView(product: productSamples[2])
         let source2 = ProductDetailView(product: productSamples[1])
         return Group {
             Preview(source: source1)

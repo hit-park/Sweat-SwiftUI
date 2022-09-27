@@ -25,7 +25,7 @@ struct ContentView: View {
         return NavigationView {
             VStack(spacing: 30) {
                 NavigationLink("과일마트") {
-                    Home(store: Store())//.navigationBarBackButtonHidden(true)
+                    Home().environmentObject(Store())//.navigationBarBackButtonHidden(true)
                 }
                 NavigationLink("Chapter 2") {
                     Chapter2ContentView()

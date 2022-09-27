@@ -52,10 +52,7 @@ private extension ProductRow {
         HStack(spacing: 0) {
             Text("₩").font(.footnote) + Text("\(product.price)").font(.headline)
             Spacer()
-            Image(systemName: "heart")
-                .imageScale(.large)
-                .foregroundColor(Color.peach)
-                .frame(width: 32, height: 32)
+            FavoriteButton(prouduct: product)
             Image(systemName: "cart")
                 .imageScale(.large)
                 .foregroundColor(Color.peach)

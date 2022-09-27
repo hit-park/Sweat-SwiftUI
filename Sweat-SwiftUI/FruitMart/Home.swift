@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct Home: View {
-    let store: Store
+    @EnvironmentObject private var store: Store
     
     var body: some View {
         NavigationView {
@@ -16,6 +16,8 @@ struct Home: View {
                 NavigationLink(destination: ProductDetailView(product: product)) {
                     ProductRow(product: product)
                 }
+                // defaultStyle은 자식 뷰의 버튼보다 상위 뷰의 버튼을 먼저 인식.
+//                .buttonStyle(.plain)
             }
             .listStyle(.plain)
             .navigationTitle("과일마트")
@@ -26,6 +28,6 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
 //        Preview(source: Home(store: Store()))
-        Home(store: Store())
+        Home().environmentObject(Store())
     }
 }
