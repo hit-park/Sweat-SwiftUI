@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ProductDetailView: View {
+    
     @State private var quantity: Int = 1
+    @State private var showingAlert: Bool = false
+    @EnvironmentObject private var store: Store
     let product: Product
     
     var body: some View {
@@ -72,7 +75,9 @@ struct ProductDetailView: View {
     }
     
     var placeOrderButton: some View {
-        Button(action: {}) {
+        Button {
+            self.showingAlert = true
+        } label: {
             Capsule()
                 .fill(Color.peach)
                 .frame(maxWidth: .infinity, minHeight: 30, maxHeight: 55)
@@ -83,6 +88,14 @@ struct ProductDetailView: View {
                         .foregroundColor(Color.white)
                 )
                 .padding(.vertical, 8)
+        }
+        .alert("주문 확인", isPresented: $showingAlert) {
+            Button("확인") {
+                self.store.placeOrder(product: self.product, quantity: self.quantity)
+            }
+            Button("취소", role: .cancel) {  }
+        } message: {
+            Text("\(product.name)을(를) \(quantity)개 구매하시겠습니까?")
         }
     }
     
@@ -102,8 +115,8 @@ struct ProductDetailView: View {
 
 struct ProductDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        let source1 = ProductDetailView(product: productSamples[2])
-        let source2 = ProductDetailView(product: productSamples[1])
+        let source1 = ProductDetailView(product: productSamples[2]).environmentObject(Store())
+        let source2 = ProductDetailView(product: productSamples[1]).environmentObject(Store())
         return Group {
             Preview(source: source1)
             Preview(source: source2, devices: [.iPhone11Pro], displayDarkMode: false)

@@ -13,7 +13,9 @@ struct Home: View {
     var body: some View {
         NavigationView {
             List(store.products) { product in
-                NavigationLink(destination: ProductDetailView(product: product)) {
+                NavigationLink {
+                    ProductDetailView(product: product).environmentObject(self.store)
+                } label: {
                     ProductRow(product: product)
                 }
                 // defaultStyle은 자식 뷰의 버튼보다 상위 뷰의 버튼을 먼저 인식.
