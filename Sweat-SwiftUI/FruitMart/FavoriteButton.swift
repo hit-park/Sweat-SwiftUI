@@ -24,14 +24,12 @@ struct FavoriteButton: View {
 //                .foregroundColor(.peach)
 //                .frame(width: 32, height: 32)
 //        }
-        Image(systemName: imageName)
-            .imageScale(.large)
-            .foregroundColor(.peach)
+        
+        Symbol(imageName, imageScale: .large, color: .peach)
             .frame(width: 32, height: 32)
             .onTapGesture { // 제스처는 네비게이션 링크나 버튼 같은 컨트롤보다 터치이벤트에 대한 우선순위가 높다.
                 self.store.toggleFavorite(of: self.prouduct)
             }
-
     }
 }
 

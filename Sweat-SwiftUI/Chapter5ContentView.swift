@@ -30,27 +30,6 @@ struct Chapter5ContentView: View {
                 Text(user.score.description)
             }
             SuperView().environmentObject(User2())
-//            Button("Show Alert - 15 Under") {
-//                self.showingAlert = true
-//            }
-//            .alert(isPresented: $showingAlert) {
-//                Alert(
-//                    title           : Text("제목"),
-//                    message         : Text("내용"),
-//                    primaryButton   : .default(Text("확인"), action: { print("확인 버튼 클릭됨.") }),
-//                    secondaryButton : .cancel(Text("취소"))
-//                )
-//            }
-            
-//            Button("Show Alert - 15 Upper") {
-//                self.showingAlert = true
-//            }
-//            .alert("제목", isPresented: $showingAlert) {
-//                Button("확인") { print("확인 버튼 클릭됨.") }
-//                Button("취소", role: .cancel) { }
-//            } message: {
-//                Text("내용")
-//            }
 
             Button("ActionSheet") {
                 self.showingActionSheet = true
@@ -62,21 +41,6 @@ struct Chapter5ContentView: View {
             } message: {
                 Text("내용")
             }
-            
-//            Button("ActionSheet") {
-//                self.showingActionSheet = true
-//            }
-//            .actionSheet(isPresented: $showingActionSheet) {
-//                ActionSheet(
-//                    title   : Text("제목"),
-//                    message : Text("내용"),
-//                    buttons : [
-//                        .default(Text("1")),
-//                        .destructive(Text("2")),
-//                        .cancel(Text("Dismiss"))
-//                    ]
-//                )
-//            }
         }
         .padding()
     }

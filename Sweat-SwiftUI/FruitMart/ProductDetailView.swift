@@ -11,6 +11,7 @@ struct ProductDetailView: View {
     
     @State private var quantity: Int = 1
     @State private var showingAlert: Bool = false
+    @State private var showingPopup: Bool = false
     @EnvironmentObject private var store: Store
     let product: Product
     
@@ -19,14 +20,20 @@ struct ProductDetailView: View {
             productImage
             orderView
         }
+//        .modifier(
+//            Popup(
+//                size: CGSize(width: 200, height: 200),
+//                style: .dimmed,
+//                message: Text("팝업")
+//            )
+//        )
+        .popup(isPresented: $showingPopup) { OrderCompletedMessage() }
         .edgesIgnoringSafeArea(.top)
     }
     
     var productImage: some View {
         GeometryReader { _ in
-            Image(product.imageName)
-                .resizable()
-                .scaledToFill()
+            ResizedImage(self.product.imageName)
         }
     }
     
@@ -92,11 +99,13 @@ struct ProductDetailView: View {
         .alert("주문 확인", isPresented: $showingAlert) {
             Button("확인") {
                 self.store.placeOrder(product: self.product, quantity: self.quantity)
+                self.showingPopup = true
             }
             Button("취소", role: .cancel) {  }
         } message: {
             Text("\(product.name)을(를) \(quantity)개 구매하시겠습니까?")
         }
+        .buttonStyle(ShrinkButtonStyle())
     }
     
     func splitText(_ text: String) -> String {
