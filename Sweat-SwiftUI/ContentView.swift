@@ -33,6 +33,12 @@ struct ContentView: View {
                 NavigationLink("Chapter 3") {
                     Chapter3ContentView()
                 }
+                NavigationLink("Chapter 5") {
+                    Chapter5ContentView(user: User2())
+                }
+                NavigationLink("Chapter 7") {
+                    Chapter7ContentView()
+                }
             }
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) { leadingItem }
